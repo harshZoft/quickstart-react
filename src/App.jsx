@@ -6,7 +6,7 @@ import Vapi from "@vapi-ai/web";
 import { isPublicKeyMissingError } from "./utils";
 
 // Put your Vapi Public Key below.
-const vapi = new Vapi("0000XXXX-XXXX-XXXX-XXXX-XXXXXXXX0000");
+const vapi = new Vapi("fc16b094-9968-43a4-8140-3efe4859c197");
 
 const App = () => {
   const [connecting, setConnecting] = useState(false);
@@ -15,7 +15,8 @@ const App = () => {
   const [assistantIsSpeaking, setAssistantIsSpeaking] = useState(false);
   const [volumeLevel, setVolumeLevel] = useState(0);
 
-  const { showPublicKeyInvalidMessage, setShowPublicKeyInvalidMessage } = usePublicKeyInvalid();
+  const { showPublicKeyInvalidMessage, setShowPublicKeyInvalidMessage } =
+    usePublicKeyInvalid();
 
   // hook into Vapi events
   useEffect(() => {
@@ -61,7 +62,7 @@ const App = () => {
   // call start handler
   const startCallInline = () => {
     setConnecting(true);
-    vapi.start(assistantOptions);
+    vapi.start("dc0fe2af-61d4-4154-96c7-cb743be45006");
   };
   const endCall = () => {
     vapi.stop();
@@ -79,7 +80,7 @@ const App = () => {
     >
       {!connected ? (
         <Button
-          label="Call Vapi’s Pizza Front Desk"
+          label="Call Andrew"
           onClick={startCallInline}
           isLoading={connecting}
         />
@@ -157,7 +158,8 @@ order, then end the conversation.
 };
 
 const usePublicKeyInvalid = () => {
-  const [showPublicKeyInvalidMessage, setShowPublicKeyInvalidMessage] = useState(false);
+  const [showPublicKeyInvalidMessage, setShowPublicKeyInvalidMessage] =
+    useState(false);
 
   // close public key invalid message after delay
   useEffect(() => {
